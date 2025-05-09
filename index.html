@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LASA - Real Estate Solutions</title>
+  <meta name="description" content="Find your dream property with LASA. Explore villas, apartments, commercial spaces and more in Hyderabad.">
+  <meta name="keywords" content="real estate, Hyderabad, villas, apartments, property, LASA">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: #f4f4f4; color: #333; scroll-behavior: smooth; }
+    header {
+      background: #0a1d37; padding: 20px; color: #fff;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    header h1 { font-size: 24px; color: #fff; }
+    nav a { color: #fff; margin: 0 15px; text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+
+    .hero {
+      background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c') no-repeat center center/cover;
+      height: 500px; display: flex; align-items: center; justify-content: center;
+      color: #fff; text-align: center;
+    }
+    .hero h2 { font-size: 48px; background: rgba(0,0,0,0.5); padding: 10px 20px; border-radius: 10px; }
+    
+    .search-bar {
+      padding: 30px; background: #fff; display: flex; justify-content: center; gap: 10px;
+    }
+    .search-bar input, .search-bar select, .search-bar button {
+      padding: 10px; border-radius: 5px; border: 1px solid #ccc;
+    }
+    .search-bar button {
+      background-color: #0a1d37; color: #fff; cursor: pointer;
+      transition: background 0.3s;
+    }
+    .search-bar button:hover {
+      background-color: #13325f;
+    }
+
+    .listing-section, .property-types, .locations, #agents, #contact {
+      padding: 40px 20px;
+    }
+    .section-title {
+      font-size: 28px; margin-bottom: 20px; text-align: center;
+    }
+    .cards {
+      display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;
+    }
+    .card {
+      background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 300px; transition: transform 0.3s;
+    }
+    .card:hover { transform: scale(1.05); }
+    .card img { width: 100%; height: 200px; object-fit: cover; }
+    .card-body { padding: 15px; }
+
+    .footer {
+      background: #0a1d37; color: #fff; text-align: center; padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LASA</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#properties">Properties</a>
+      <a href="#agents">Agents</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero" id="home">
+    <h2>Let’s Find Your Dream House.</h2>
+  </div>
+
+  <div class="search-bar">
+    <input type="text" id="keyword" placeholder="Budget">
+    <select id="category">
+      <option value="">Category</option>
+      <option value="Villa">Villa</option>
+      <option value="Apartment">Apartment</option>
+      <option value="Commercial">Commercial</option>
+    </select>
+    <input type="text" id="location" placeholder="Location">
+    <button onclick="handleSearch()">Search</button>
+  </div>
+
+  <section class="property-types">
+    <h2 class="section-title">Explore Property Types</h2>
+    <div class="cards">
+      <div class="card"><div class="card-body">Commercial</div></div>
+      <div class="card"><div class="card-body">Villa</div></div>
+      <div class="card"><div class="card-body">Apartment</div></div>
+
+    </div>
+  </section>
+
+  <section class="listing-section" id="properties">
+    <h2 class="section-title">Find Home Listings in Your Area</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994" alt="Apartment">
+        <div class="card-body">
+          <h3>Elevation Small Apartments</h3>
+          <p>₹29.99 Lakhs - 2 Beds, 1 Bath</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600585154184-7271fc238a95" alt="Apartment">
+        <div class="card-body">
+          <h3>West Square Apartments</h3>
+          <p>₹55 Lakhs - 3 Beds, 2 Baths</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600585154306-9018a3a0f4d7" alt="Apartment">
+        <div class="card-body">
+          <h3>Peninsula Apartments</h3>
+          <p>₹75 Lakhs - 3 Beds, 2 Baths</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="locations">
+    <h2 class="section-title">Top Locations for Your Property</h2>
+    <div class="cards">
+      <div class="card"><img src="https://images.unsplash.com/photo-1588854337119-ff47fdb2f402" alt="Location"><div class="card-body">California</div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1588854337142-70a1a379c1a3" alt="Location"><div class="card-body">Hyderabad</div></div>
+      <div class="card"><img src="https://images.unsplash.com/photo-1588854337313-c3969a417d38" alt="Location"><div class="card-body">Bangalore</div></div>
+    </div>
+  </section>
+
+  <section id="agents">
+    <h2 class="section-title">Meet Our Agents</h2>
+    <div class="cards">
+      <div class="card"><div class="card-body">Agent 1 - +91 9492479080</div></div>
+      <div class="card"><div class="card-body">Agent 2 - +91 9381171530</div></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+    <div style="text-align: center;">
+      <p>Email: lasaservices@gmail.com</p>
+      <p>Phone: +91 9492479080</p>
+      <p>Address: 8th Floor Regus Room No: 834 ,SLN Terminus ,Gachibowli ,Hyderabad.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 LASA Real Estate Solutions. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function handleSearch() {
+      const keyword = document.getElementById('keyword').value.trim();
+      const category = document.getElementById('category').value;
+      const location = document.getElementById('location').value.trim();
+
+      console.log("Search triggered with:");
+      console.log("Keyword:", keyword);
+      console.log("Category:", category);
+      console.log("Location:", location);
+
+      alert(`Searching for "${keyword}" in category "${category}" at "${location}"`);
+    }
+  </script>
+</body>
+</html>
